@@ -13,8 +13,8 @@ class RoomBooking(models.Model):
         ('CANCELED', 'Canceled'),
         ('COMPLETED', 'Completed'),
     )
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
-    room = models.ForeignKey(Room, on_delete=models.SET_NULL)
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
+    room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
     check_in_date = models.DateTimeField()
     check_out_date = models.DateTimeField()
     is_paid = models.BooleanField(default=False)
