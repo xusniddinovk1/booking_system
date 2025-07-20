@@ -96,10 +96,21 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openaiAutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication'
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Sizning API nomingiz',
+    'DESCRIPTION': 'API haqida qisqacha ma’lumot',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,  # Swagger view da JSON ni avtomatik ko‘rsatmaslik uchun
+    'COMPONENT_SPLIT_REQUEST': True,
+    'SECURITY': [{'BearerAuth': []}],
+    'AUTHENTICATION_WHITELIST': [],
 }
 
 SIMPLE_JWT = {
