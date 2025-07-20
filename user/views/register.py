@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -6,6 +7,19 @@ from rest_framework import status
 
 
 class RegisterView(APIView):
+    @extend_schema(
+        request=RegisterSerializer,
+        responses={
+            200: {
+                'type': 'object',
+                'properties': {
+                    'refresh': {'type': 'string'},
+                    'access': {'type': 'string'},
+                }
+            },
+            400: {'type': 'object'},  # yoki error serializer qo‘shsa ham bo‘ladi
+        }
+    )
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
