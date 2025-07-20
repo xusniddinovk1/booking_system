@@ -104,8 +104,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Sizning API nomingiz',
-    'DESCRIPTION': 'API haqida qisqacha ma’lumot',
+    'TITLE': 'Booking',
+    'DESCRIPTION': 'Booking System API',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,  # Swagger view da JSON ni avtomatik ko‘rsatmaslik uchun
     'COMPONENT_SPLIT_REQUEST': True,
