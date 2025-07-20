@@ -8,7 +8,7 @@ phone_regex = RegexValidator(
 )
 
 
-class LoginSerializer(serializers.ModelSerializer):
+class LoginSerializer(serializers.Serializer):
     phone_number = serializers.CharField(validators=[phone_regex], max_length=13)
     password = serializers.CharField(write_only=True)
 
