@@ -21,4 +21,4 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError('Invalid error')
 
         data['user'] = user
-        return user
+        return data
