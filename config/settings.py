@@ -104,13 +104,25 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Booking',
-    'DESCRIPTION': 'Booking System API',
+    'TITLE': 'BookStore API',
+    'DESCRIPTION': 'Bookstore',
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,  # Swagger view da JSON ni avtomatik ko‘rsatmaslik uchun
+    'SERVE_INCLUDE_SCHEMA': False,
+
     'COMPONENT_SPLIT_REQUEST': True,
+    'SWAGGER_UI_SETTINGS': {
+        'persistAuthorization': True,
+    },
     'SECURITY': [{'BearerAuth': []}],
-    'AUTHENTICATION_WHITELIST': [],
+    'COMPONENTS': {
+        'securitySchemes': {
+            'BearerAuth': {
+                'type': 'http',
+                'scheme': 'bearer',
+                'bearerFormat': 'JWT',
+            }
+        },
+    },
 }
 
 SIMPLE_JWT = {
@@ -125,15 +137,3 @@ AUTHENTICATION_BACKENDS = [
     'user.authentication.PhoneNumberBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header',
-            'description': 'JWT format: Bearer <token>',
-        }
-    },
-    'USE_SESSION_AUTH': False,
-}
