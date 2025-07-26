@@ -8,8 +8,16 @@ class Hotel(models.Model):
     rating = models.PositiveIntegerField()
 
 
+ROOM_TYPES = (
+    ('single', 'Single'),
+    ('double', 'Double'),
+    ('suite', 'Suite'),
+)
+
+
 class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room_number = models.PositiveIntegerField()
-    room_type = models.CharField(max_length=10)
-    price = models.IntegerField()
+    room_type = models.CharField(max_length=10, choices=ROOM_TYPES)
+    price = models.DecimalField(max_digits=10, decimal_places=3)
+    is_available = models.BooleanField(default=True)
