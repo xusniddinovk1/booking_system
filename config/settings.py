@@ -101,6 +101,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication'
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 SPECTACULAR_SETTINGS = {
@@ -126,11 +129,10 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    'ALGORITHM': 'HS256',
-    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=300),
-    'SLIDING_TOKEN__REFRESH_LIFETIME': timedelta(days=1),
-
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     "BLACKLIST_AFTER_ROTATION": True,
+    "ALGORITHM": "HS256",
 }
 
 AUTHENTICATION_BACKENDS = [
