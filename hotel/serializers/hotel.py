@@ -5,7 +5,7 @@ from ..models import Hotel, Room
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ['id', 'room', 'room_number', 'room_type', 'price']
+        fields = ['id', 'hotel', 'room_number', 'room_type', 'price']
 
 
 class HotelSerializer(serializers.ModelSerializer):
@@ -13,4 +13,4 @@ class HotelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hotel
-        fields = ['id', 'name', 'address', 'description', 'rating']
+        fields = ['id', 'name', 'address', 'description', 'rating', 'rooms']
