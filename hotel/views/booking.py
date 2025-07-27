@@ -4,7 +4,7 @@ from ..serializers import RoomBookingSerializer
 
 
 class RoomBookingViewSet(viewsets.ModelViewSet):
-    queryset = RoomBooking.objets.all()
+    queryset = RoomBooking.objects.all()
     serializer_class = RoomBookingSerializer
 
     def get_queryset(self):

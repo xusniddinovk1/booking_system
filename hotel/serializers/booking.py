@@ -8,7 +8,7 @@ class RoomBookingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RoomBooking
-        fields = ['id', 'user', 'room', 'check_in_date', 'check_out_date', 'is_paid', 'status', 'total_days', 'created_at', 'total_price']
+        fields = ['id', 'user', 'room', 'check_in_date', 'check_out_date', 'is_paid', 'status', 'total_days', 'total_price']
         read_only_fields = ['user', 'status', 'created_at', 'total_days', 'total_price']
 
     def get_total_price(self, obj):
