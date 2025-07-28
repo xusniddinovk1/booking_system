@@ -5,7 +5,6 @@ class Hotel(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField()
     description = models.TextField()
-    image = models.ImageField(upload_to='images/')
     rating = models.PositiveIntegerField()
 
     def __str__(self):
